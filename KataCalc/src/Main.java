@@ -23,13 +23,9 @@ public class Main {
             int num1 = Integer.parseInt(userInput[0]);
             int num2 = Integer.parseInt(userInput[2]);
             String operator = userInput[1];
-            //Одно из числе больше 10
+            //Одно из чисел больше 10
             if (num1 > 10 || num2 > 10) {
                 throw  new WrongDataException("Числа не могут быть больше 10");
-            }
-            //Неверный знак операции
-            if (!operator.equals("+") & !operator.equals("-") & !operator.equals("/") & !operator.equals("*")) {
-                throw new WrongDataException("Недопустимый оператор");
             }
             // Деление на ноль
             if (num2 == 0 & operator.equals("/")) {
@@ -40,7 +36,7 @@ public class Main {
             throw new NumberFormatException("Неверный ввод одного из чисел");
         }
     }
-    private static int calculation(String[] userInput) {
+    private static int calculation(String[] userInput) throws WrongDataException {
         int num1 = Integer.parseInt(userInput[0]);
         int num2 = Integer.parseInt(userInput[2]);
         String operator = userInput[1];
@@ -57,6 +53,9 @@ public class Main {
                 break;
             case "/" :
                 res = num1 / num2;
+                break;
+            default:
+                throw new WrongDataException("Недопустимый оператор");
         }
         return res;
     }
