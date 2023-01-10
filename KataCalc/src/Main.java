@@ -42,7 +42,7 @@ public class Main {
         try {
             int num1 = Integer.parseInt(userInput[0]);
             int num2 = Integer.parseInt(userInput[2]);
-            //String operator = userInput[1];
+
             //Одно из чисел меньше 0 или больше 10
             if ((num1 > 10 || num2 > 10) || (num1 < 1 || num2 < 1)) {
                 throw  new WrongDataException("Числа не могут быть меньше 0 или больше 10");
